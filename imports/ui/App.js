@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Tasks } from '../api/tasks.js';
 import Task from './Task.js';
 import AccountUIWapper from './AccountsUIWrapper.js';
+import Weather from './Weather.js';
 
 // App component - represents the whole app
 class App extends Component {
@@ -12,7 +13,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      hideCompleted: false,
+      hideCompleted: false
     };
   }
 
@@ -55,9 +56,12 @@ class App extends Component {
   }
 
   render() {
+    const weather_data = this.state.weather_data;
     return (
       <div className="container">
+        <Weather />
         <header>
+
           <h1>Todo List ({this.props.incompleteCount})</h1>
 
           <label className="hide-completed">
@@ -86,6 +90,13 @@ class App extends Component {
         <ul>
           {this.renderTasks()}
         </ul>
+
+        <div className="container">
+          <header>
+            <h1>Emails </h1>
+
+          </header>
+        </div>
       </div>
     );
   }
