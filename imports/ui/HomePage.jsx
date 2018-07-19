@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
-import { Tasks } from '../api/tasks.js';
-import Task from './Task.js';
-import AccountUIWapper from './AccountsUIWrapper.js';
-import Weather from './Weather.js';
+import { Tasks } from '../api/tasks';
+import Task from './Task';
+import AccountUIWapper from './AccountsUIWrapper';
+import Weather from './Weather';
 
-// App component - represents the whole app
-class App extends Component {
+class HomePage extends Component {
   constructor(props) {
     super(props);
 
@@ -110,4 +109,4 @@ export default withTracker(() => {
     incompleteCount: Tasks.find({ checked: { $ne: true } }).count(),
     currentUser: Meteor.user(),
   };
-})(App);
+})(HomePage);
